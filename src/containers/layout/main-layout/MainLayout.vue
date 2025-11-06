@@ -7,16 +7,30 @@ const layoutStyle: CSSProperties = {
   height: '100vh',
 }
 
+const headerHeight: number = 64;
+
 const headerStyle: CSSProperties = {
   padding: 0,
-  lineHeight: '64px',
+  lineHeight: headerHeight + 'px',
+  position: 'fixed',
+  zIndex: 1,
+  width: '100%',
 };
 
 const contentStyle: CSSProperties = {
-  minHeight: 120,
+  height: 'calc(100vh - ' + headerHeight + 'px)',
+  marginTop: '64px',
   padding: '15px',
-  backgroundColor: 'white',
+  backgroundColor: '#f5f5f5',
 };
+
+const contentInnerStyle: CSSProperties = {
+  backgroundColor: 'white',
+  height: 'calc(100vh - ' + headerHeight + 'px - 30px)',
+  padding: '10px',
+  borderRadius: '10px',
+}
+
 </script>
 
 <template>
@@ -26,7 +40,9 @@ const contentStyle: CSSProperties = {
         <MainMenu/>
       </a-layout-header>
       <a-layout-content :style="contentStyle">
-        <slot name="content"></slot>
+        <div :style="contentInnerStyle">
+          <slot name="content"></slot>
+        </div>
       </a-layout-content>
     </a-layout>
   </a-layout>

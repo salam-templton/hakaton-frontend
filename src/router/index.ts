@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import StudentsList from '@/containers/pages/students-list/StudentsList.vue'
+import PersonsView from '@/containers/pages/persons/PersonsView.vue'
 import SettingsView from '@/containers/pages/settings/SettingsView.vue'
 
 export const pathRoutes = {
@@ -12,7 +12,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: StudentsList,
+      component: PersonsView,
     },
     {
       path: '/settings',
